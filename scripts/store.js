@@ -14,7 +14,7 @@ const store = (function () {
   let searchTerm = '';
 
   function findById(id) {
-    return items.find(item => item.id = id);
+    return this.items.find(item => item.id = id);
   }
 
   function addItem(name) {
@@ -48,6 +48,6 @@ const store = (function () {
   }
 
   return {
-    items, hideCheckedItems, searchTerm, addItem, findAndToggleChecked, findAndUpdateName, findAndDelete
+    items, findById, hideCheckedItems, searchTerm, addItem, findAndToggleChecked, findAndUpdateName, findAndDelete
   };
 }());
