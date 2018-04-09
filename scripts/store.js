@@ -32,7 +32,19 @@ const store = (function () {
     item.checked = !item.checked;
   }
 
+  function findAndUpdateName(id, newName) {
+    try {
+      Item.validateName(newName);
+      let item = this.findById(id);
+      item.name = newName;
+    }
+    catch(e){
+      console.log('Cannot update name: ' + e.message);
+    }
+    
+  }
+
   return {
-    items, hideCheckedItems, searchTerm, addItem, findAndToggleChecked
+    items, hideCheckedItems, searchTerm, addItem, findAndToggleChecked, findAndUpdateName
   };
 }());
