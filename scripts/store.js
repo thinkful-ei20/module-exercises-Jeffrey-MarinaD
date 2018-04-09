@@ -13,6 +13,10 @@ const store = (function () {
   let hideCheckedItems = false;
   let searchTerm = '';
 
+  function findById(id) {
+    return items.find(item => item.id = id);
+  }
+
   return {
     items, hideCheckedItems, searchTerm
   };
