@@ -27,7 +27,12 @@ const store = (function () {
     }
   }
 
+  function findAndToggleChecked(id) {
+    let item = this.findById(id);
+    item.checked = !item.checked;
+  }
+
   return {
-    items, hideCheckedItems, searchTerm, addItem
+    items, hideCheckedItems, searchTerm, addItem, findAndToggleChecked
   };
 }());
