@@ -41,10 +41,13 @@ const store = (function () {
     catch(e){
       console.log('Cannot update name: ' + e.message);
     }
-    
+  }
+
+  function findAndDelete(id) {
+    this.items = this.items.filter(item => item.id !== id);
   }
 
   return {
-    items, hideCheckedItems, searchTerm, addItem, findAndToggleChecked, findAndUpdateName
+    items, hideCheckedItems, searchTerm, addItem, findAndToggleChecked, findAndUpdateName, findAndDelete
   };
 }());
