@@ -1,4 +1,4 @@
-/* global store cuid*/
+/* global store, Item cuid*/
 'use strict';
 
 
@@ -15,6 +15,16 @@ const store = (function () {
 
   function findById(id) {
     return items.find(item => item.id = id);
+  }
+
+  function addItem(name) {
+    try {
+      Item.validateName(name);
+      items.push(Item.create(name));
+    }
+    catch (e){
+      console.log('Cannot add item: ' + e.message);
+    }
   }
 
   return {
