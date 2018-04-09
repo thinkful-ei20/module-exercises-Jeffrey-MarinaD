@@ -47,7 +47,15 @@ const store = (function () {
     this.items = this.items.filter(item => item.id !== id);
   }
 
+  function toggleCheckedFilter(){
+    this.hideCheckedItems = !this.hideCheckedItems;
+  }
+
+  function setSearchTerm (query) {
+    this.searchTerm = query;
+  }
+
   return {
-    items, findById, hideCheckedItems, searchTerm, addItem, findAndToggleChecked, findAndUpdateName, findAndDelete
+    items, findById, hideCheckedItems, searchTerm, addItem, findAndToggleChecked, findAndUpdateName, findAndDelete, toggleCheckedFilter, setSearchTerm
   };
 }());
