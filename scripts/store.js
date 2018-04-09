@@ -20,7 +20,7 @@ const store = (function () {
   function addItem(name) {
     try {
       Item.validateName(name);
-      items.push(Item.create(name));
+      this.items.push(Item.create(name));
     }
     catch (e){
       console.log('Cannot add item: ' + e.message);
@@ -28,6 +28,6 @@ const store = (function () {
   }
 
   return {
-    items, hideCheckedItems, searchTerm
+    items, hideCheckedItems, searchTerm, addItem
   };
 }());

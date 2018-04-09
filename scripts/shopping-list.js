@@ -58,8 +58,7 @@ const shoppingList = (function(){
   
   function addItemToShoppingList(itemName) {
     try {
-      Item.validateName(itemName);
-      store.items.push(Item.create());
+      store.addItem(itemName);
       render();
     }
     catch (e){
