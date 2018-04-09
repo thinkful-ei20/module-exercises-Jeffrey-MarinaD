@@ -90,12 +90,6 @@ const shoppingList = (function(){
     });
   }
   
-  
-  function editListItemName(id, itemName) {
-    const item = store.items.find(item => item.id === id);
-    item.name = itemName;
-  }
-  
   function toggleCheckedItemsFilter() {
     store.hideCheckedItems = !store.hideCheckedItems;
   }
@@ -122,7 +116,7 @@ const shoppingList = (function(){
       event.preventDefault();
       const id = getItemIdFromElement(event.currentTarget);
       const itemName = $(event.currentTarget).find('.shopping-item').val();
-      editListItemName(id, itemName);
+      store.findAndUpdateName(id, itemName);
       render();
     });
   }
